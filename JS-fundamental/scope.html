@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Local Scope</title>
+</head>
+<body>
+    <script>
+        // global
+        let taman_kota = 0;
+
+        function rumah1(){
+            //local
+            let teras = "Teras rumah 1";
+            document.writeln(`<p>Ini adalah ${teras}</p>`);
+            taman_kota += 5;
+            document.writeln(`<p>Ini adalah ${taman_kota}</p>`); // 5
+        }
+
+        function rumah2(){
+            //local
+            let teras = "Teras rumah 2";
+            document.writeln(`<p>Ini adalah ${teras}</p>`);
+
+            //nested scope
+            function rumah2_dapur(){
+                let dapur = "Dapur Teratur";
+                document.writeln(`<p>Ini adalah ${dapur} dan ${teras}</p>`);
+            }
+
+            rumah2_dapur(); 
+            console.info(dapur); // Uncaught ReferenceError: dapur is not defined
+        }
+
+        rumah1();
+        rumah2();
+
+        console.info(taman_kota); // 5
+
+        console.info(teras); // Uncaught ReferenceError: teras is not defined
+
+    </script>
+</body>
+</html>

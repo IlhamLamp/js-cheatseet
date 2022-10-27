@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prototype</title>
+</head>
+<body>
+    <script>
+
+        function Employee(firstName, lastName){
+            this.firstName = firstName;
+            this.lastName = lastName;
+            const fullName = firstName + " " + lastName;
+            this.sayHello = function (name) {
+                console.info(`Hello ${name}, My name is ${fullName}`);
+            }
+        }
+
+        function Manager(firstName, lastName, division){
+            Employee.call(this, firstName, lastName);
+            this.division = division;
+        }
+
+        const yuri = new Employee('yuri', 'hana');
+        console.log(yuri);
+        // const ilham = new Manager('ilham', 'utomo', 'junior');
+
+        // console.info(ilham);
+        // ilham.sayHello('Joko');
+
+        // console.info(yuri.sayHello('yuri'));
+
+    </script>
+</body>
+</html>

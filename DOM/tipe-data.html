@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tipe Data Fundamental</title>
+</head>
+<body>
+    <p id="paragraf">Ini adalah paragraf</p>
+    <ul id="menu">
+        <li id="first">satu</li>
+        <li id="second">dua</li>
+        <li id="third">tiga</li>
+    </ul>
+
+    <h1 id="title"></h1>
+    <h2 id="desc"></h2>
+    <hr>
+    <div id="content" class="content">
+        <h1 id="title-content" class="title-content">Ini Merupakan Judul</h1>
+        <p class="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+    </div>
+
+    <!-- JS here -->
+    <script>
+        // Document
+        console.info(document);
+        console.info(document.title);
+        console.info(document.head);
+        console.info(document.body);
+        console.info(document.images);
+        console.info(document.contentType);
+
+        
+        {
+            // Node
+            const paragraph = document.getElementById('paragraf');
+            console.info(paragraph);
+            const menu = document.getElementById('menu');
+            console.info(menu);
+
+            // Node Property
+            console.info(menu.childNodes);
+
+            // Node Method
+            menu.removeChild(document.getElementById('second')); // pada tampilan, second akan hilang
+        }
+
+        {
+            // Element
+            const title = document.getElementById('title');
+            title.textContent = "Ini h1 penerapan elemen";
+
+            const desc = document.getElementById('desc');
+            desc.textContent = "Ini h2 penerapan elemen";
+
+            // Element Property
+            const content = document.getElementById('content');
+
+            console.info(content.id);
+            console.info(content.className);
+            console.info(content.tagName);
+
+            // Element Method
+            document.getElementById("title-content").remove(); // menghapus dirinya sendiri
+
+            // Element Append
+            const quote = document.createElement("p");
+            quote.textContent = "Ini Quote ? hidup seperti Larry bukan lari";
+            content.appendChild(quote);
+        }
+    </script>
+
+</body>
+</html>

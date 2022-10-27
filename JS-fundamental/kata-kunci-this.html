@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>This</title>
+</head>
+<body>
+    <script>
+        console.info(this); // Window
+
+        // jika di dalam objek, `this` menjadi objek pemilik dari fungsi
+        const person = {
+            name: "ciao", // gunakan this.name untuk mengakses
+
+            sayHello: function(name){
+                document.writeln(`<p>Hello ${name}, my name is ${this.name}`);
+            }
+        }
+
+        person.sayHello('ham');
+    </script>
+</body>
+</html>

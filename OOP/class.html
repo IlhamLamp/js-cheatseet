@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class</title>
+</head>
+<body>
+    <script>
+        class Person{ 
+            
+            // constructor di class
+            constructor (name) {
+                this.name = name;
+                console.info(`Hello ${name}`);
+            }
+
+            sayHello (name) {
+                console.info(`Hello ${name}, my name is ${this.name}`);
+            }
+
+        };
+
+        // Person.prototype.sayHello = function(name){
+        //     console.info(`Hello ${name}`);
+        // }
+
+        const ilham = new Person('ilham');
+        console.info(ilham.name);
+        ilham.sayHello('yolo');
+
+        const hans = new Person('hans');
+        console.info(hans.name);
+        hans.sayHello('mirai');
+    </script>
+</body>
+</html>

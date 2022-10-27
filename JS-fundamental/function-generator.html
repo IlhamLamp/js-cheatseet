@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function Generator</title>
+</head>
+<body>
+    <script>
+        
+        // * = generator
+        function* createName(){
+            yield "Ini";
+            yield "Bukanlah";
+            yield "Array";
+            yield "Mun mirip";
+        }
+
+        const names = createName();
+        for (const name of names){
+            document.writeln(`<p>${name}</p>`);
+        }
+
+        // Lazy
+        function* buatGenap(value){
+            for (let i = 1; i <= value; i++){
+                if (i % 2 === 0){
+                    // document.writeln(`<p>Yield ${i}</p>`);
+                    yield i;
+                }
+            }
+        }
+
+        const numbers = buatGenap(50);
+        // for (const number of numbers){
+        //    document.writeln(`<p>${number}</p>`);
+        // }
+        console.info(numbers.next().value); //2
+        console.info(numbers.next().value); //4
+        console.info(numbers.next().value); //6
+
+        // Eager
+        function buatGenapArray(value){
+            result = [];
+            for (let i = 1; i <= value; i++){
+                if (i % 2 === 0){
+                    document.writeln(`<p>Yield ${i}</p>`);
+                    result.push(i);
+                }
+            }
+            return result;
+        }
+
+        const numbersArray = buatGenapArray(50);
+        for (const number of numbersArray){
+            document.writeln(`<p>${number}</p>`);
+        }
+    </script>
+</body>
+</html>

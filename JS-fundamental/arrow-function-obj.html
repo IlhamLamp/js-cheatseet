@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrow function pada object</title>
+</head>
+<body>
+    <script>
+        
+        // jgn mengakses data generator, this, args object
+        const person = {
+            name: 'ilham',
+            sayHello: (name) => {
+                document.writeln(`<p>Hello ${name}, my name is ${this.name}</p>`);
+                // Hello andy, my name is
+                
+                // console.info(`Hello ${name}, my name is ${this}`);
+                // console.info(this); // windows
+            }
+        }
+
+        person.sayHello('andy');
+    </script>
+</body>
+</html>

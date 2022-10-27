@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Var Let</title>
+</head>
+<body>
+    <script>
+
+        // VAR
+        document.writeln(`<p> VAR </p>`);
+        var i = 5;
+
+        for (var i = 0; i < 3; i++) {
+            document.writeln(`<p>Local ${i}</p>`);
+            // VAR
+            // Local 0
+            // Local 1
+            // Local 2
+        }
+        document.writeln(`<p>Global ${i}`); // Global 3
+
+        // LET
+        document.writeln(`<p> <br>LET </p>`);
+        let j = 5;
+
+        for (let j = 0; j < 3; j++) {
+            document.writeln(`<p>Local ${j}</p>`);
+            // LET
+            // Local 0
+            // Local 1
+            // Local 2
+        }
+        document.writeln(`<p>Global ${j}`); // Global 5
+
+        // CONST
+        document.writeln(`<p> <br>CONST </p>`);
+        const k = 5;
+
+        for (const k = 0; k < 3; k++) {
+            document.writeln(`<p>Local ${k}</p>`);
+            // CONST
+            // Local 0
+        }
+        document.writeln(`<p>Global ${k}`);
+    </script>
+</body>
+</html>

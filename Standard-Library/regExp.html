@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regular Expression</title>
+</head>
+<body>
+    <script>
+
+        // regex coy
+        {
+            const names = "Ilham Nur Utomo ilham";
+            const regex = /ILHAM/
+
+            let result = regex.exec(names);
+            console.info(result);
+
+            let test = regex.test(names);
+            console.info(test); //false
+        }
+
+        // regex modifier
+        {
+            const story = 'Di suatu hari muncul seorang tabib\nTabib itu membawa pedang juga tambang\nApa fungsi tambang itu?';
+            const regex = /tabib/ig   
+
+            let result;
+            while ((result = regex.exec(story)) !== null) {
+                console.info(result);
+            }
+        }
+
+        {
+            const names ="edo eko elo eki eka eku eki aki eke";
+
+            console.info(names.match(/ek[aiueo]/ig)); // memfilter kata ek
+            console.info(names.search(/ek[aiueo]/ig)); // mencari indeks kata ek yang pertama muncul
+            console.info(names.replace(/ek[aiueo]/i, 'kamu')); // menimpa ek pertama dengan kata kamu
+            console.info(names.replaceAll(/ek[aiueo]/ig, 'kamu')); // menimpa semua ek dengan kata kamu
+            console.info(names.split(/e/ig)); // melepas huruf e pada tiap kata
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Node List</title>
+</head>
+<body>
+    <p>Japanese Count</p>
+    <ul id="menu1">
+        <li id="first">Ichi</li>
+        <li id="second">Ni</li>
+        <li id="third">San</li>
+    </ul>
+
+    <p>Namaewa</p>
+    <ul id="menu2">
+        <li>Ilham</li>
+        <li>Nur</li>
+        <li>Utomo</li>
+    </ul>
+
+    <script>
+        // node list
+        const allMenu = document.querySelectorAll("li");
+        console.info(allMenu);
+
+        {
+            // live node
+            const menu1 = document.getElementById("menu1");
+            const list = menu1.childNodes;
+
+            // menu1.appendChild(document.createElement("li"));
+            // menu1.appendChild(document.createElement("li"));
+
+            // console.info(list); // li bertambah 2 pada konsol dan tampilan
+            
+            // static node
+            let list2 = document.querySelectorAll("li");
+            const menu2 = document.getElementById("menu2");
+
+            menu2.appendChild(document.createElement("li"));
+            menu2.appendChild(document.createElement("li"));
+
+            console.info(list2); // li bertambah 2 pada tampilan
+
+            list2 = document.querySelectorAll("li");
+            console.info(list2); // li bertambah 2 pada tampilan dan konsol
+
+        }
+    </script>
+</body>
+</html>

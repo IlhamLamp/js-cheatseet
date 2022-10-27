@@ -1,0 +1,13 @@
+STYLE DOM -> pascalCase
+    ex: background-color -> backgroundColor
+
+textContent -> Ambil seluruh bagian dalam tag yg dipilih
+    ex: kode <script> pun termasuk
+
+innerText -> Hanya menampilkan diluaran kode script
+innerHTML -> tampilkan string tagnya
+windows -> browser window
+
+HTML element -> html element pada js
+    ex: link.href
+        link.target

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array</title>
+</head>
+<body>
+    <script>
+
+    {
+        // array loop
+        const array = "Ilham Nur Utomo";
+        const Array = array.split(" ");
+
+        console.info(Array);
+
+        Array.forEach(function (value, index) {
+            console.info(`${index} : ${value}`);
+        });
+
+        // Arrow function
+        Array.forEach((value, index) => console.info(`${index} : ${value}`));
+        Array.forEach((value) => console.info(`${value}`));
+    }
+
+    {
+        // array queue | FIFO
+        const queue = [];
+
+        queue.push("apel");
+        queue.push("pear");
+        queue.push(" ");
+        console.log(queue);
+
+        queue.shift();
+        console.log(queue);
+        // pear, ' ';
+    }
+
+    {
+        // array stack | LIFO
+        const stack = [];
+
+        stack.push("apel");
+        stack.push("pear");
+        stack.push(" ");
+        console.log(stack);
+
+        stack.pop();
+        console.log(stack);
+        // apel, pear;
+    }
+
+    {
+        // array search | source
+        const source = [1,2,3,4,5,3,2,4,1,8,2];
+
+        console.info(source.find(value => value > 5));
+        console.info(source.findIndex(value => value > 1));
+        console.info(source.includes(7)); // false
+        console.info(source.indexOf(5)); // 4
+        console.info(source.lastIndexOf(2)); // 10
+
+         // FOR OF = INT
+        // FOR IN = STRING
+        var count = 0;
+
+        for (var i = 0; i < numbers.length; i++){
+            if(numbers[i] === 2){
+                count++;
+            }
+        }
+          console.log(count);
+    }
+
+    {
+        // array filter
+        const numbers = [1,2,3,4,5,3,2,4,1,8,2];
+
+        const ganjil =  numbers.filter(value => value % 2 == 1);
+        const genap =  numbers.filter(value => value % 2 == 0);
+
+        console.info(ganjil);
+        console.info(genap);
+    }
+
+    {
+        // array transform
+        const names = ["Hans", "De", "Nietzche"];
+
+        const namesUpper = names.map(value => value.toUpperCase());
+        console.info(namesUpper);
+
+        const namesReduce = names.reduce((before, value) => before + " " + value);
+        console.info(namesReduce);
+
+        const namesRight = names.reduceRight((before, value) => before + " " + value);
+        console.info(namesRight);
+
+        const numbers = [1,2,3,4,5,3,2,4,1,8,2];
+        const total = numbers.reduce((before, value) => before + value);
+        console.info(total);
+    }
+    </script>
+</body>
+</html>

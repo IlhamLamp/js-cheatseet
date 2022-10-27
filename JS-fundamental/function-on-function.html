@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function dalam Function</title>
+</head>
+<body>
+    <script>
+        // outer . inner
+        function kulit(){
+            function daging(){
+                document.writeln(`<p>Ini bagian daging</p>`);
+            }
+            document.writeln(`<p>Ini bagian kulit</p>`);
+            // kulit(); ---> looping
+            daging(); // ini bakal muncul terakhir
+        }
+
+        // execute
+        kulit();
+        daging(); // ga bakal muncul
+    </script>
+</body>
+</html>

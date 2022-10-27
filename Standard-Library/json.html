@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON Coy</title>
+</head>
+<body>
+    <script>
+
+        const person = {
+            firstName : 'ilham',
+            lastName : 'utomo',
+            address : {
+                country : 'ada indonesia coy',
+                city : 'bekasi'
+            },
+            hobbies : [
+                'game', 'sing', 'read'
+            ]
+        }
+
+        const convertToJson = JSON.stringify(person);
+        console.info(convertToJson);
+
+        const jsonObject = JSON.parse(convertToJson);
+        console.info(jsonObject)
+    </script>
+</body>
+</html>

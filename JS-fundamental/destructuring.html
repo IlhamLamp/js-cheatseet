@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destructuring Array</title>
+</head>
+<body>
+    <script>
+
+        // Array Scope
+        {
+            const story = ["Billa", "Merapal-rapal", "Mantra", "Berharap", "Sesuatu Terjadi"];
+            const [firstLn, secondLn, thirdLn, ...others ] = story;
+
+            console.info(firstLn);
+            console.info(secondLn);
+            console.info(thirdLn);
+            console.info(others);
+            // console.info(others[0]);
+        }
+
+        // Object Scope
+        {
+            const story = {
+                firstLn: "Billa",
+                secondLn: "Merapal-rapal",
+                thirdLn: "Mantra",
+                climax: {
+                    fourthLn: "Berharap",
+                    fiveLn: "Sesuatu Terjadi."
+                },
+                seventhLn: "Miko tertawa",
+                eightLn: "Melihatnya"
+            };
+
+            const {firstLn, secondLn, thirdLn, climax:{fourthLn, fiveLn}, ...others} = story;
+            console.info(firstLn);
+            // console.info(others.others.fourthLn); // berharap
+            // oh ini tidak efisien
+            console.info(others.seventhLn, fourthLn, others.eightLn);
+        }
+
+        // Function Parameter
+        {
+            function displayPerson({firstname, middlename, lastname}) {
+                console.info(firstname);
+                console.info(middlename);
+                console.info(lastname);
+            }
+
+            const person = {
+                firstname: 'ilham',
+                middlename: 'nur',
+                lastname: 'utomo'
+            }
+
+            displayPerson(person);
+        }
+
+        // Pada array
+        {
+            // function sum(value){
+            //     return value[0] + value[1];
+            // }
+
+            function sum([firstvalue, secondvalue]){
+                return firstvalue + secondvalue;
+            }
+
+            console.info(sum([5,4])); // 9
+            console.info(sum([1,4])); // 5
+        }
+
+        // Default Value Array
+        {
+            const person = ["Anthony", "Rachel"];
+            const [firstname, secondname, thirdname = "default value"] = person;
+
+            console.info(thirdname); // default value
+        }
+
+        // Object
+        {
+            const person = {
+                firstname: 'Daniel',
+                lastname: 'Denial'
+            }
+
+            const {firstname, middlename = "Is", lastname} = person;
+
+            console.info(middlename); // Is
+        }
+
+        // mengubah
+        {
+            const person = {
+                firstname: 'Friedrich',
+                // middlename: '',
+                lastname: 'Nietzche'
+            };
+
+            let {
+                firstname: nDepan,
+                middlename: mName = "Default Value",
+                lastname: nAkhir
+                } = person;
+
+                console.info(nDepan, mName, nAkhir);
+                // Friedrich Default Value Nietzche
+        };
+            
+    </script>
+</body>
+</html>

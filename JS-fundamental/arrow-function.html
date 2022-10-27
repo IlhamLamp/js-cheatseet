@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrow Function</title>
+</head>
+<body>
+    <script>
+        
+        // const sayHello = (name) => {
+        //     const say = `Hello ${name}`;
+        //     console.info(say);
+        // }
+        
+        // tanpa block, 
+        // jika 1 parameter, bisa tanpa kurung
+        const sayHelloJp = name => console.info(`こんにちは ${name}`);
+        sayHelloJp('Ilham'); // こんにちは Ilham
+
+        const sum = (first, second) => first + second; 
+        console.info(sum(50, 2)); // 52
+
+        function giveMeName(callback){
+            callback('Ilham');
+        }
+
+        giveMeName(name => console.info(`Hello ${name}`)); // Hello Ilham 
+    </script>
+</body>
+</html>

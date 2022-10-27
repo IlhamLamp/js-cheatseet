@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object Module</title>
+    <script type="module"></script>
+</head>
+<body>
+    <script type="module">
+        import * as bio from "./scripts/object.js"
+
+        const agecount = new bio.Age();
+        console.info(agecount); // object
+
+        agecount.ageNow(2001); // 21
+
+    </script>
+</body>
+</html>

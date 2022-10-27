@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>instanceof</title>
+</head>
+<body>
+    <script>
+        
+        class Employee {
+
+        }
+
+        class Supervisor extends Employee {
+
+        }
+
+        class Manager {
+
+        }
+
+        const ilham = new Employee();
+        const ciao = new Manager();
+        const morax = new Supervisor();
+
+        // mendeteksi tipe
+        console.info(typeof ilham);
+        console.info(typeof ciao);
+        console.info(typeof morax);
+
+        // 
+        console.info(ilham instanceof Employee);
+        console.info(ilham instanceof Manager); // False
+        console.info(ciao instanceof Manager);
+        console.info(morax instanceof Employee); // True
+        
+        
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class</title>
+    <script type="module" src="scripts/Person.js"></script>
+</head>
+<body>
+    <script type="module">
+
+        // Dalam multiple import, Jika melakukan inheritance, ambil yg paling bisa menarik semuanya sudah cukup
+        import {Person, employeeFullName, employeeDivision, greetings as welcome} from "./scripts/Person.js"
+
+            // {        
+            //     // class Person
+            //     const person = new Person();
+            //     person.firstName = 'ilham';
+            //     person.lastName = 'utomo';
+            //     person.sayHello('Dyna')
+
+            //     // class employeeFullName
+            //     const employeefname = new employeeFullName();
+            //     employeefname.firstName = 'ilham';
+            //     employeefname.lastName = 'utomo';
+            //     employeefname.fullName();
+
+            //     // class employeeDivision inheritance
+            //     const employeediv = new employeeDivision();
+            //     employeediv.firstName = 'ilham';
+            //     employeediv.lastName = 'utomo';
+        
+            //     employeediv.sayHello('Dyna'); 
+            //     employeediv.fullName(); 
+            //     employeediv.division('programmer back end'); 
+            // }
+            
+
+        const employeeWelcome = new welcome();
+        employeeWelcome.firstName = 'ilham';
+        employeeWelcome.lastName = 'utomo';
+
+        employeeWelcome.sayHello('Dyna'); // class Person
+        employeeWelcome.fullName(); // class employeeFullName
+        employeeWelcome.division('programmer back end'); // class employeeDivision
+        employeeWelcome.greetings('Bos');
+
+    </script>
+</body>
+</html>

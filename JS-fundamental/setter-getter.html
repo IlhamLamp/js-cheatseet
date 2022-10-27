@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set Get</title>
+</head>
+<body>
+    <script>
+
+        const person = {
+            firstName: 'ham',
+            lastName: 'tomo',
+
+            // GETTER
+            get fullName() {
+                return `${this.firstName} ${this.lastName}`;
+            },
+
+            // SETTER
+            set fullName(value) {
+                const array = value.split(" ");
+                this.firstName = array[0];
+                this.lastName = array[1];
+            }
+        };
+
+        // person.firstName = 'ilham';
+        // console.info(person.fullName); // ilham tomo
+
+        person.fullName = "Nadira Sanguine";
+        console.table(person);
+
+        person.fullName = "Lunaria Melancholic";
+        console.table(person);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error Handling</title>
+</head>
+<body>
+    <script>
+
+        {
+            class MathUtil {
+
+                static sum(...numbers){
+
+                    if (numbers.length === 0) {
+                        throw new Error("Total parameter harus lebih dari 0");
+                    }
+
+                    let total = 0;
+                    for (const number of numbers) {
+                        total += number;
+                    }
+                    return total;
+                }
+            }
+
+
+                try {
+                    console.info(MathUtil.sum());
+                    // program berhenti, lompat ke catch
+                    console.info('han');
+                } catch (error) {
+                    console.info(`Terjadi error coy : ${error.message}`);    
+                    // abaikam blok jika berhasil
+                } finally {
+                    console.info("Program selesai");
+                    // eksekusi apapun hasilnya
+                }
+
+                const result = MathUtil.sum(10, 4, 4, 2, 1, 5);
+                console.info(result);
+
+                class Counter {
+                #counter = 0;
+
+                next() {
+                    try {
+                        return this.#counter;
+                    }
+                    finally {
+                        this.#counter++;
+                    }
+                }
+                }
+
+                const counter = new Counter();
+                console.info(counter.next());
+                console.info(counter.next());
+                console.info(counter.next());
+        }
+
+        // Membuat Class Error
+        {
+            class ValidationError extends Error {
+                constructor(message, field) {
+                    super(message);
+                    this.field = field;
+                }
+            }
+
+            class MathUtil {
+                static sum(...numbers) {
+
+                    if (numbers.length === 0){
+                        throw new ValidationError(`Total parameter harus lebih dari 0`); 
+                    }
+
+                    let total = 0;
+                    for (const number of numbers) {
+                        total += number;
+                    }
+                    return total;
+                }
+            }
+
+            try {
+                console.info(MathUtil.sum());
+                console.info("ilham");
+            } catch (error) {
+                if (error instanceof ValidationError) {
+                    console.error(`Terjadi error di field ${error.field} dengan error : ${error.message}`);
+                } else {
+                    console.error(`Terjadi error : ${error.message}`);
+                }
+            } finally {
+                console.info("Program berhasil");
+            }
+
+        }
+    </script>
+</body>
+</html>

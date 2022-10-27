@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set Get</title>
+</head>
+<body>
+    <script>
+
+        class Person {
+            constructor(firstname, lastname) {
+                this.firstname = firstname;
+                this.lastname = lastname;
+            }
+
+            get fullName() {
+                return `${this.firstname} ${this.lastname}`
+            }
+
+            set fullName(value) {
+                const result = value.split(" ");
+                this.firstname = result[0];
+                this.lastname = result[1];
+            }
+        }
+
+        const ilham = new Person("ilham", "utomo");
+        console.info(ilham)
+        console.info(ilham.fullName);
+
+        ilham.fullName = "ciao kokodah";
+        console.info(ilham);
+    </script>
+</body>
+</html>
