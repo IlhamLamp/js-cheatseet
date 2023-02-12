@@ -1,0 +1,24 @@
+`` function() dan function ``
+ - jika dengan kurung akan mengembalikan nilai
+ - tanpa kurung berarti kegiatan sedang berlangsung
+
+`` form ``
+ - new URLSearchParams(); -> hanya teks
+ - new FormData(); -> bisa file
+
+`` callback hell ``
+ doFirst {
+    do second {
+        do third {
+
+        }
+    }
+ }
+
+`` promise static method ``
+
+`` Async Await ``
+
+`` Web Worker ``
+    - blm tau cara ngecek nya
+ 

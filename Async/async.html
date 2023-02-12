@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async</title>
+</head>
+<body>
+    <script>
+        
+    // Promise<String>
+        function getNamePromise() {
+            return new Promise(function (resolve, reject){
+                resolve("Ini promise");
+            })
+        }
+
+        async function getNameAsync() {
+            return "Ini async";
+        }
+
+        getNamePromise()
+            .then((name) => console.info(name));
+        
+        getNameAsync()
+            .then((name) => console.info(name));
+    </script>
+</body>
+</html>

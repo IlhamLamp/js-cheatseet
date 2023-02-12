@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX</title>
+</head>
+<body>
+    <!-- Title -->
+    <h1 id="header"></h1>
+
+    <!--  -->
+    <label for="username">
+        username: 
+        <input type="text" id="username" name="username">
+    </label>
+    <br>
+    <label for="password">
+        password: 
+        <input type="password" id="password" name="password">
+    </label>
+    <br>
+    <input type="button" id="login" value="login">
+    <br><br><br>
+
+    <!--  -->
+    <label for="search">
+        Search:
+        <input type="text" id="search" name="search">
+    </label>
+    <br>
+    <input type="button" id="searchButton" value="Search">
+    <br><br><br>
+
+    <!-- Form  -->
+    <form>
+        <p>Create an account</p>
+        <label for="username">
+            nim: 
+            <input type="text" id="nim" name="nim">
+        </label>
+        <br>
+        <label for="email">
+            email: 
+            <input type="text" id="email" name="email">
+        </label>
+        <br>
+        <label for="profile">
+            Upload profile: 
+            <input type="file" id="profile" name="profile">
+        </label>
+        <br>
+        <input type="button" id="register" value="register">
+    </form>
+
+    <script>
+        
+    // Response status
+    {
+        function displayResponse(json){
+            const header = document.getElementById("header");
+            header.textContent = json.response;
+        }
+
+        const ajax = new XMLHttpRequest();
+        // ajax.open("GET", "api/hello.json");
+        ajax.open("GET", "api/gada.json");
+
+        ajax.addEventListener("load", function(){
+            if (ajax.status === 200) {
+                const json = JSON.parse(ajax.responseText);
+                displayResponse(json);
+            } else {
+                displayResponse ({
+                    response : `Terjadi kesalahan, dengan error ${ajax.status}`
+                })
+            }
+        });
+        ajax.send();
+    }
+
+    // Send data (JSON) with ajax
+    {
+        function doLogin() {
+            const ajax = new XMLHttpRequest();
+            ajax.open("POST", "https://hookb.in/kxlWXdQk0ETBDokBL0ee");
+            ajax.onload = function () {
+                const response = document.getElementById("header");
+                response.innerText = ajax.responseText;
+            }
+            ajax.setRequestHeader("Content-Type", "application/json");
+
+            const json = {
+                username : document.getElementById("username").value,
+                password : document.getElementById("password").value
+            }
+
+            ajax.send(JSON.stringify(json));
+        }
+        document.getElementById("login").onclick = doLogin;
+    }
+
+    // Send data (query param)
+    {
+        function doSearch() {
+            const ajax = new XMLHttpRequest();
+            const param = new URLSearchParams();
+
+            param.append("search", document.getElementById("search").value);
+            param.append("filter", document.getElementById("search").value);
+
+            ajax.open("GET", `https://hookb.in/kxlWXdQk0ETBDokBL0ee?${param.toString()}`);
+            ajax.onload = function () {
+                const response = document.getElementById("header");
+                response.innerText = ajax.responseText;
+            }
+            ajax.send();
+        }
+        document.getElementById("searchButton").onclick = doSearch;
+    }
+
+    // Send data (form) | upload file 
+        function doRegister() {
+            const ajax = new XMLHttpRequest();
+            ajax.open("POST", "https://hookb.in/kxlWXdQk0ETBDokBL0ee");
+            ajax.onload = function () {
+                const response = document.getElementById("header");
+                response.innerText = ajax.responseText;
+            }
+            ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+            // const form = new URLSearchParams();
+            const form = new FormData();
+            form.append("nim", document.getElementById("nim").value);
+            form.append("email", document.getElementById("email").value);
+
+            const files = document.getElementById("profile").files;
+            const firstFile = files.item(0);
+
+            form.append("profile", firstFile);
+
+            ajax.send(form);
+        }
+        document.getElementById("register").onclick = doRegister;
+    </script>
+</body>
+</html>
